@@ -1,5 +1,8 @@
 # Container with Varnish for Magento 2
 
+[![Docker Stars](https://img.shields.io/docker/stars/fastwhitecat/varnish.svg)](https://hub.docker.com/r/fastwhitecat/varnish/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fastwhitecat/varnish.svg)](https://hub.docker.com/r/fastwhitecat/varnish/)
+
 Included:
 
 - Varnish
