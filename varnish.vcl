@@ -10,7 +10,7 @@ backend default {
 }
 
 acl purge {
-    "backend";
+    "acl_host";
 }
 
 sub vcl_recv {
