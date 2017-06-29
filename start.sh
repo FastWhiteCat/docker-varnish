@@ -3,12 +3,8 @@
 CONF_FILE="/etc/varnish/varnish.vcl"
 SECRET_FILE="/etc/varnish/secret"
 
-if [ -z "$STORAGE_FILE_PATH" ]; then
-    STORAGE_FILE_PATH="/var/lib/varnish"
-fi
-
-if [ -z "$STORAGE_FILE_SIZE" ]; then
-    STORAGE_FILE_SIZE="1G"
+if [ -z "$MALLOC_SIZE" ]; then
+    MALLOC_SIZE="226m"
 fi
 
 [ -z "$ACL_PURGE_HOST" ] && ACL_PURGE_HOST="127.0.0.1"
@@ -23,4 +19,4 @@ sed -i "s/acl_port/$ACL_PURGE_PORT/" $CONF_FILE
 
 varnishd -f $CONF_FILE \
     -S $SECRET_FILE -F \
-    -s file,$STORAGE_FILE_PATH/varnish_storage.bin,$STORAGE_FILE_SIZE
+    -s malloc,$MALLOC_SIZE
