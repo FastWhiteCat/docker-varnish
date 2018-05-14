@@ -45,6 +45,10 @@ sub vcl_recv {
     if (req.url ~ "/checkout" || req.url ~ "/catalogsearch" || req.url ~ "/facebook") {
         return (pass);
     }
+    # Bypass feed product (xml in pub media)
+    if (req.url ~ "^/(pub/)?(media|static)/.*\.(xml)$") {
+        return (pass);
+    }
 
     # normalize url in case of leading HTTP scheme and domain
     set req.url = regsub(req.url, "^http[s]?://", "");
