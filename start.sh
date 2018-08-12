@@ -4,7 +4,7 @@ CONF_FILE="/etc/varnish/varnish.vcl"
 SECRET_FILE="/etc/varnish/secret"
 
 if [ -z "$MALLOC_SIZE" ]; then
-    MALLOC_SIZE="226m"
+    MALLOC_SIZE="1G"
 fi
 
 [ -z "$ACL_PURGE_HOST" ] && ACL_PURGE_HOST="127.0.0.1"
