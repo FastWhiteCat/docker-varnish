@@ -49,6 +49,10 @@ sub vcl_recv {
     if (req.url ~ "^/(pub/)?(media|static)/.*\.(xml)$") {
         return (pass);
     }
+    # Bypass for robots.txt
+    if (req.url ~ "/robots.txt") {
+        return (pass);
+    }
 
     # normalize url in case of leading HTTP scheme and domain
     set req.url = regsub(req.url, "^http[s]?://", "");
