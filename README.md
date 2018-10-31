@@ -5,7 +5,7 @@
 
 Included:
 
-- Varnish
+- Varnish 4.1.9
 - File configuration .vcl
 
 ## Description
@@ -17,7 +17,7 @@ Docker container Varnish for Magento 2 based on Alpine Linux.
 Run:
 
 ```bash
-docker run -Pit --name=varnish fastwhitecat/varnish-docker
+docker run -Pit --name=varnish fastwhitecat/varnish
 ```
 Run with configuration:
 
@@ -25,7 +25,11 @@ Run with configuration:
 docker run -Pit --name=varnish \
         -e BACKEND_HOST="127.0.0.1" \
         -e BACKEND_PORT="8080" \
-        -e ACL_PURGE_HOST="127.0.0.1" fastwhitecat/varnish-docker
+        -e MALLOC_SIZE="1G" \
+        -e $HTTP_RESP_HDR_LEN="8k" \
+        -e $HTTP_RESP_SIZE="32k" \
+        -e ACL_PURGE_HOST="127.0.0.1" \
+        -e ACL_PURGE_PORT="" fastwhitecat/varnish
 ```
 
 Build:

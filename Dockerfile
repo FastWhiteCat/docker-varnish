@@ -1,5 +1,5 @@
 FROM alpine:3.6
-MAINTAINER  Lukasz Olszewski <lukasz.olszewski@fastwhitecat.com>
+MAINTAINER  FWC <development@fastwhitecat.com>
 
 EXPOSE 80
 
