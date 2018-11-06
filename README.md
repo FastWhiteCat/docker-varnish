@@ -29,6 +29,7 @@ docker run -Pit --name=varnish \
         -e HTTP_RESP_HDR_LEN="8k" \
         -e HTTP_RESP_SIZE="32k" \
         -e WORKSPACE_BACKEND="64k" \
+        -e WORKSPACE_CLIENT="64k" \
         -e THREAD_POOL_MIN="100" \
         -e THREAD_POOL_MAX="5000" \
         -e ACL_PURGE_HOST="127.0.0.1" \
