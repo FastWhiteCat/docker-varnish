@@ -17,6 +17,7 @@ fi
 [ -z "$HTTP_RESP_SIZE" ] && HTTP_RESP_SIZE=32k
 
 [ -z "$WORKSPACE_BACKEND" ] && WORKSPACE_BACKEND=64k
+[ -z "$WORKSPACE_CLIENT" ] && WORKSPACE_CLIENT=64k
 
 [ -n "$BACKEND_HOST" ] && sed -i "s/.*.host\ \=\ .*/.host\ \=\ \"$BACKEND_HOST\";/" $CONF_FILE
 [ -n "$BACKEND_PORT" ] && sed -i "s/.*.port\ \=\ .*/.port\ \=\ \"$BACKEND_PORT\";/" $CONF_FILE
@@ -31,5 +32,6 @@ varnishd -f $CONF_FILE \
     -p http_resp_hdr_len=$HTTP_RESP_HDR_LEN \
     -p http_resp_size=$HTTP_RESP_SIZE \
     -p workspace_backend=$WORKSPACE_BACKEND \
+    -p workspace_client=$WORKSPACE_CLIENT \
     -S $SECRET_FILE -F \
     -s malloc,$MALLOC_SIZE
