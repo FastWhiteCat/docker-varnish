@@ -18,7 +18,7 @@ backend default {
 }
 
 acl purge {
-    "localhost";
+    "acl_host"acl_port;
 }
 
 sub vcl_recv {
@@ -58,7 +58,7 @@ sub vcl_recv {
     }
 
     # Bypass shopping cart, checkout and search requests
-    if (req.url ~ "/checkout" || req.url ~ "/catalogsearch") {
+    if (req.url ~ "/checkout" || req.url ~ "/catalogsearch" || req.url ~ "/facebook") {
         return (pass);
     }
 
