@@ -27,7 +27,7 @@ Run with configuration:
 docker run -Pit --name=varnish \
         -e BACKEND_HOST="127.0.0.1" \
         -e BACKEND_PORT="8080" \
-        -e $BACKEND_FIRST_BYTE_TIMEOUT="600" \
+        -e BACKEND_FIRST_BYTE_TIMEOUT="600" \
         -e MALLOC_SIZE="1G" \
         -e HTTP_RESP_HDR_LEN="8k" \
         -e HTTP_RESP_SIZE="32k" \
