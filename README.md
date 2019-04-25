@@ -3,6 +3,8 @@
 [![Docker Stars](https://img.shields.io/docker/stars/fastwhitecat/varnish.svg)](https://hub.docker.com/r/fastwhitecat/varnish/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/fastwhitecat/varnish.svg)](https://hub.docker.com/r/fastwhitecat/varnish/)
 
+Base on alpine 3.6
+
 Included:
 
 - Varnish 4.1.9
@@ -25,6 +27,7 @@ Run with configuration:
 docker run -Pit --name=varnish \
         -e BACKEND_HOST="127.0.0.1" \
         -e BACKEND_PORT="8080" \
+        -e $BACKEND_FIRST_BYTE_TIMEOUT="600" \
         -e MALLOC_SIZE="1G" \
         -e HTTP_RESP_HDR_LEN="8k" \
         -e HTTP_RESP_SIZE="32k" \

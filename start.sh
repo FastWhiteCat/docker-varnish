@@ -21,6 +21,7 @@ fi
 
 [ -n "$BACKEND_HOST" ] && sed -i "s/.*.host\ \=\ .*/.host\ \=\ \"$BACKEND_HOST\";/" $CONF_FILE
 [ -n "$BACKEND_PORT" ] && sed -i "s/.*.port\ \=\ .*/.port\ \=\ \"$BACKEND_PORT\";/" $CONF_FILE
+[ -n "$BACKEND_FIRST_BYTE_TIMEOUT" ] && sed -i "s/.*.first_byte_timeout\ \=\ .*/.first_byte_timeout\ \=\ \"$BACKEND_FIRST_BYTE_TIMEOUT\";/" $CONF_FILE
 
 [ -n "$ACL_PURGE_HOST" ] && sed -i "s/acl_host/$ACL_PURGE_HOST/" $CONF_FILE
 
