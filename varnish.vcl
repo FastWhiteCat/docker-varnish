@@ -66,6 +66,10 @@ sub vcl_recv {
     if (req.url ~ "/pub/health_check.php") {
         return (pass);
     }
+    # Bypass for robots.txt
+    if (req.url ~ "/robots.txt") {
+        return (pass);
+    }
 
     # Set initial grace period usage status
     set req.http.grace = "none";
